@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiscExamples
 {
@@ -55,6 +54,20 @@ namespace MiscExamples
 			bool hasBit = (value & checkBit) == checkBit;
 
 			Console.WriteLine(hasBit);
+			Console.ReadLine();
+		}
+
+		private static void SerializeAnonimousClass()
+		{
+
+			//foreach (var i in new List<int>() { 1, 2, 3, 4, 5 })
+			//{
+			var c = new { X = new List<string> { "one", "two" }, Y = 100, Name = "Test01" };
+			//}
+			string s = JsonConvert.SerializeObject(c);
+			Console.WriteLine(s);
+
+			var c2 = JsonConvert.DeserializeObject(s);
 			Console.ReadLine();
 		}
 	}
