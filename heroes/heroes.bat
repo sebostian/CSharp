@@ -1,0 +1,1 @@
+"c:\Users\Bolt\AppData\Local\Atlassian\SourceTree\git_local\bin\sh.exe"
