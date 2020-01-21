@@ -43,8 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Product.cs" />
+    <Compile Include="Color.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Size.cs" />
+    <Compile Include="V1\ProductFilter.cs" />
+    <Compile Include="V2_Good\AndSpecification.cs" />
+    <Compile Include="V2_Good\BetterFilter.cs" />
+    <Compile Include="V2_Good\ColorSpecification.cs" />
+    <Compile Include="V2_Good\IFilter.cs" />
+    <Compile Include="V2_Good\ISpecification.cs" />
+    <Compile Include="V2_Good\SizeSpecification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
