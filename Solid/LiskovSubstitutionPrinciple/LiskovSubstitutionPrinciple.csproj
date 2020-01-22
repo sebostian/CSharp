@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Calculator\V1\EvenNumberSumCalculator.cs" />
+    <Compile Include="Calculator\V1\SumCalculator.cs" />
+    <Compile Include="Calculator\V2\EvenNumbersSumCalculator.cs" />
+    <Compile Include="Calculator\V2\SumCalculator.cs" />
     <Compile Include="LspBroken\Rectangle.cs" />
     <Compile Include="LspBroken\Square.cs" />
     <Compile Include="Program.cs" />

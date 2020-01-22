@@ -1,4 +1,5 @@
-﻿using LiskovSubstitutionPrinciple.LspBroken;
+﻿using LiskovSubstitutionPrinciple.Calculator.V1;
+using LiskovSubstitutionPrinciple.LspBroken;
 using System;
 
 namespace LiskovSubstitutionPrinciple
@@ -11,7 +12,39 @@ namespace LiskovSubstitutionPrinciple
 	{
 		static void Main(string[] args)
 		{
-			DoLspBrokenExample();
+			//DoLspBrokenExample();
+			// We should be able to store a reference to an EvenNumbersSumCalculator as a SumCalculator variable 
+			// and nothing should change. But it isn't true.
+			DoCalculatorExampleNotGood();
+			Console.WriteLine("----------------------");
+			// Now we can replace EvenNumbersSumCalculator as a SumCalculator variable
+			DoCalculatorExampleBetter();
+		}
+
+		private static void DoCalculatorExampleBetter()
+		{
+			var numbers = new int[] { 5, 7, 9, 8, 1, 6, 4 };
+
+			Calculator.V2.SumCalculator sum = new Calculator.V2.SumCalculator(numbers);
+			Console.WriteLine($"The sum of all the numbers: {sum.Calculate()}");
+
+			Console.WriteLine();
+
+			Calculator.V2.SumCalculator evenSum = new Calculator.V2.EvenNumbersSumCalculator(numbers);
+			Console.WriteLine($"The sum of all the even numbers: {evenSum.Calculate()}");
+		}
+
+		private static void DoCalculatorExampleNotGood()
+		{
+			var numbers = new int[] { 5, 7, 9, 8, 1, 6, 4 };
+
+			SumCalculator sum = new SumCalculator(numbers);
+			Console.WriteLine($"The sum of all the numbers: {sum.Calculate()}");
+
+			Console.WriteLine("");
+
+			EvenNumbersSumCalculator evenSum = new EvenNumbersSumCalculator(numbers);
+			Console.WriteLine($"The sum of all the even numbers: {evenSum.Calculate()}");
 		}
 
 		private static void DoLspBrokenExample()

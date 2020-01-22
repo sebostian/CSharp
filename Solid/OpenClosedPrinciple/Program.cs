@@ -3,11 +3,10 @@ using System;
 
 namespace OpenClosedPrinciple
 {
-	// the open-closed principle states 
-	// that a type is open for extension, 
+	// The open-closed principle states that a type is open for extension, 
 	// but closed for modification.
 
-	// So, let’s recap what OCP is and how the given example enforces it. 
+	// So, let’s recap what OCP is and how the given example enforces it.
 	// Basically, OCP states that you shouldn’t need to go back to code you have
 	// already written and tested and change it.That is exactly what’s happening
 	// here! We made ISpecification<T> and IFilter<T> and, from then on, all
