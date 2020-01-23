@@ -13,6 +13,31 @@ namespace LiskovSubstitutionPrinciple
 		static void Main(string[] args)
 		{
 			//DoLspBrokenExample();
+			//DoCalculatorExample();
+			DoFruitExample();
+
+		}
+
+		private static void DoFruitExample()
+		{
+			FruitsDontUseLsp.Apple apple = new FruitsDontUseLsp.Orange();
+			Console.WriteLine($"Color of apple is {apple.GetColor()} expected : 'Red'");
+
+			FruitsDontUseLsp.Apple orange = new FruitsDontUseLsp.Orange();
+			Console.WriteLine($"Color of orange is {orange.GetColor()} expected : 'Orange'");
+
+
+			Console.WriteLine("--------------End of fruits without Lsp -------------------");
+
+			FruitsUseLsp.Fruit fruit1 = new FruitsUseLsp.Apple();
+			Console.WriteLine($"Color of apple is {fruit1.GetColor()} expected : 'Red'");
+
+			FruitsUseLsp.Fruit fruit2 = new FruitsUseLsp.Orange();
+			Console.WriteLine($"Color of orange is {fruit2.GetColor()} expected : 'Orange'");
+		}
+
+		private static void DoCalculatorExample()
+		{
 			// We should be able to store a reference to an EvenNumbersSumCalculator as a SumCalculator variable 
 			// and nothing should change. But it isn't true.
 			DoCalculatorExampleNotGood();

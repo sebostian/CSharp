@@ -43,10 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FruitsDontUseLsp\Apple.cs" />
+    <Compile Include="FruitsDontUseLsp\Orange.cs" />
     <Compile Include="Calculator\V1\EvenNumberSumCalculator.cs" />
     <Compile Include="Calculator\V1\SumCalculator.cs" />
     <Compile Include="Calculator\V2\EvenNumbersSumCalculator.cs" />
     <Compile Include="Calculator\V2\SumCalculator.cs" />
+    <Compile Include="FruitsUseLsp\Apple.cs" />
+    <Compile Include="FruitsUseLsp\Fruit.cs" />
+    <Compile Include="FruitsUseLsp\Orange.cs" />
     <Compile Include="LspBroken\Rectangle.cs" />
     <Compile Include="LspBroken\Square.cs" />
     <Compile Include="Program.cs" />
