@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
-namespace Builder.Example1
+namespace Builder
 {
 	public class HtmlElement
 	{
@@ -35,7 +34,9 @@ namespace Builder.Example1
 			}
 
 			foreach (var e in Elements)
+			{
 				sb.Append(e.ToStringImpl(indent + 1));
+			}
 
 			sb.Append($"{i}</{Name}>\n");
 			return sb.ToString();

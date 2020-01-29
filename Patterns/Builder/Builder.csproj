@@ -43,7 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Example1\HtmlElement.cs" />
+    <Compile Include="CommunicatingIntent\HtmlElement.cs" />
+    <Compile Include="CompositeBuilder\Person.cs" />
+    <Compile Include="CompositeBuilder\PersonAddressBuilder.cs" />
+    <Compile Include="CompositeBuilder\PersonBuilder.cs" />
+    <Compile Include="CompositeBuilder\PersonJobBuilder.cs" />
+    <Compile Include="FluentBuilder\HtmlBuilder.cs" />
+    <Compile Include="HtmlElement.cs" />
+    <Compile Include="SimpleBuilder\HtmlBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
