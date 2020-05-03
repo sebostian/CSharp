@@ -113,5 +113,25 @@ namespace AlgorithmsTests
 			return g;
 		}
 
+		[Test]
+		public void BinaryTreeTest()
+		{
+			List<int> unsorted = new List<int>{	12,10,15,6,1 };
+
+			var tree = new BinaryTree();
+			foreach (int item in unsorted)
+			{
+				tree.AddValue(item);
+			}
+
+			List<int> actual = new List<int>();
+			tree.Traverse(actual);
+
+			unsorted.Sort();
+			List<int> sorted = unsorted;
+
+			Assert.That(sorted, Is.EquivalentTo(actual), "Not Sorted");
+		}
 	}
+
 }
