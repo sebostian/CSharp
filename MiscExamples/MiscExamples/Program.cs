@@ -9,7 +9,19 @@ namespace MiscExamples
 	{
 		static void Main(string[] args)
 		{
-			Diffrence();
+			//Diffrence();
+			CheckInc();
+		}
+
+		private static void CheckInc()
+		{
+			int i = 0;
+			++i;
+			if ((i & 0xFFF) == 0)
+			{
+				Console.WriteLine(i);
+			}
+			Console.ReadLine();
 		}
 
 		static void Diffrence()
