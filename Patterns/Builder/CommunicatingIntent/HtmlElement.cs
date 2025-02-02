@@ -12,7 +12,7 @@ namespace Builder.CommunicatingIntent
 		public string Name { get; set; }
 		public string Text { get; set; }
 
-		protected List<HtmlElement> Elements = new List<HtmlElement>();
+		protected readonly List<HtmlElement> Elements = [];
 
 		protected HtmlElement()
 		{
@@ -39,10 +39,10 @@ namespace Builder.CommunicatingIntent
 			{
 				sb.Append(new string(' ', indentSize * (indent + 1)));
 				sb.Append(Text);
-				sb.Append("\n");
+				sb.Append('\n');
 			}
 
-			foreach (var e in Elements)
+			foreach (HtmlElement e in Elements)
 			{
 				sb.Append(e.ToStringImpl(indent + 1));
 			}
