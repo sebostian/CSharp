@@ -4,5 +4,5 @@ namespace TimeLogger.Core;
 
 public class Plan
 {
-	public TimeSpan AskLogTime { get; set; }
+	public TimeSpan AskLogTime { get; init; }
 }
