@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Builder.CompositeBuilder
+namespace Builder.CompositeBuilder;
+
+public class PersonBuilder
 {
-	public class PersonBuilder
+	protected Person _person;
+
+	public PersonBuilder()
 	{
-		protected Person person;
-
-		public PersonBuilder()
-		{
-			person = new Person();
-		}
-
-		protected PersonBuilder(Person person)
-		{
-			this.person = person;
-		}
-
-		public Person GetPerson()
-		{
-			return this.person;
-		}
-
-		public PersonAddressBuilder Lives => new PersonAddressBuilder(person);
-		public PersonJobBuilder Works => new PersonJobBuilder(person);
+		_person = new Person();
 	}
+
+	protected PersonBuilder(Person person)
+	{
+		_person = person;
+	}
+
+	public Person GetPerson()
+	{
+		return _person;
+	}
+
+	public PersonAddressBuilder Lives => new PersonAddressBuilder(_person);
+	public PersonJobBuilder Works => new PersonJobBuilder(_person);
 }
+

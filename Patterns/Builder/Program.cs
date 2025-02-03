@@ -7,12 +7,16 @@ namespace Builder;
 // that is, objects that cannot be built up in a single-line constructor call.
 class Program
 {
-	static void Main(string[] args)
+	private static void Main(string[] args)
 	{
-		//DoTestSimpleBuilder();
-		//DoTestFluentBuilder();
-
-		DoTestCompositeBuilder();
+		DoTestHtmlElementsSimpleAndNoBuilder();
+		//DoTestHtmlElementsFluentBuilder();
+		DoTestHtmlElementsCommunicationgIntent();
+		
+		//DoTestCompositeBuilder();
+		
+		Console.WriteLine("Press any key to exit...");
+		Console.ReadLine();
 	}
 
 	private static void DoTestCompositeBuilder()
@@ -35,7 +39,7 @@ class Program
 		Console.WriteLine(person);
 	}
 
-	private static void DoTestFluentBuilder()
+	private static void DoTestHtmlElementsFluentBuilder()
 	{
 		Console.WriteLine("--------------------");
 		Console.WriteLine("Using fluent builder");
@@ -50,14 +54,22 @@ class Program
 		Console.WriteLine("Using factory");
 		Console.WriteLine("--------------------");
 
-		HtmlBuilder fabricBuilder = CommunicatingIntent.HtmlElement.Create("ul")
-			.AddChild("li", "hello")
-			.AddChild("li", "world");
-		Console.WriteLine(fabricBuilder.ToString());
-
 	}
 
-	private static void DoTestSimpleBuilder()
+	private static void DoTestHtmlElementsCommunicationgIntent()
+	{
+		Console.WriteLine("--------------------");
+		Console.WriteLine("Using communicating intent with fluent builder");
+		Console.WriteLine("--------------------");
+		
+		HtmlBuilder builder = CommunicatingIntent.HtmlElement.CreateBuilder("ul")
+			.AddChild("li", "hello")
+			.AddChild("li", "world");
+		
+		Console.WriteLine(builder.ToString());
+	}
+
+	private static void DoTestHtmlElementsSimpleAndNoBuilder()
 	{
 		Console.WriteLine("--------------------");
 		Console.WriteLine("Without any builder");
@@ -76,9 +88,12 @@ class Program
 		Console.WriteLine("Using simple builder");
 		Console.WriteLine("--------------------");
 
+		//SimpleBuilder.HtmlBuilder simpleBuilder = new ("ul");
 		SimpleBuilder.HtmlBuilder simpleBuilder = new ("ul");
-		simpleBuilder.AddChild("li", "hello");
-		simpleBuilder.AddChild("li", "world");
+		foreach (string word in words)
+		{
+			simpleBuilder.AddChild("li", word);
+		}
 		Console.WriteLine(simpleBuilder.ToString());
 	}
 }
