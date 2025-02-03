@@ -1,25 +1,21 @@
-﻿namespace Builder.SimpleBuilder
+﻿namespace Builder.SimpleBuilder;
+
+public class HtmlBuilder(string rootName)
 {
-	public class HtmlBuilder
+	private readonly HtmlElement _root = new()
 	{
-		protected readonly string rootName;
-		protected HtmlElement root = new HtmlElement();
+		Name = rootName
+	};
 
-		public HtmlBuilder(string rootName)
-		{
-			this.rootName = rootName;
-			root.Name = rootName;
-		}
+	public void AddChild(string childName, string childText)
+	{
+		HtmlElement e = new (childName, childText);
+		_root.Elements.Add(e);
+	}
 
-		public void AddChild(string childName, string childText)
-		{
-			var e = new HtmlElement(childName, childText);
-			root.Elements.Add(e);
-		}
-
-		public override string ToString()
-		{
-			return root.ToString();
-		}
+	public override string ToString()
+	{
+		return _root.ToString();
 	}
 }
+
